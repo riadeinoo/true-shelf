@@ -1,9 +1,7 @@
-let selectedRow = null;
+let selectedBook = null;
 
 const livres = JSON.parse(localStorage.getItem('livres')) || [];
-livres.forEach(function(book){
-  insertNew(book)
-});
+sortBooks();
 
 function save() {
   localStorage.setItem('livres', JSON.stringify(livres));
@@ -12,19 +10,25 @@ function save() {
 
 function onFormSubmit() {
   const formdata = readData();
+  if (!validate(formdata)) return;
 
-  if (selectedRow === null) {
-    insertNew(formdata);      
+  if (selectedBook === null) {
     livres.push(formdata);
-    save();
   } else {
-    updateRow(formdata);
-    const rowIndex = Array.from(selectedRow.parentElement.rows).indexOf(selectedRow);
-    livres[rowIndex] = formdata;
-    save();
+    const bookIndex = livres.indexOf(selectedBook);
+    if (bookIndex !== -1) livres[bookIndex] = formdata;
   }
 
+  sortBooks();
   resetForm();
+}
+
+function validate(data) {
+  if (data.title.trim() === "" || data.author.trim() === "") {
+    alert("Title and author are required.");
+    return false;
+  }
+  return true;
 }
 
 function readData() {
@@ -53,9 +57,31 @@ function insertNew(data) {
     '<a onclick="onEdit(this)">Edit</a> <a onclick="onDelete(this)">Delete</a>';
 }
 
+function renderBooks() {
+  const tbody = document.querySelector("#greatlist tbody");
+  tbody.innerHTML = "";
+  livres.forEach(insertNew);
+  searchBooks();
+}
+
+function sortBooks() {
+  const [field, direction] = document.getElementById("sort").value.split("-");
+  livres.sort(function (a, b) {
+    const result = String(a[field] || "").localeCompare(String(b[field] || ""), undefined, {
+      sensitivity: "base",
+      numeric: true,
+    });
+    return direction === "desc" ? -result : result;
+  });
+  save();
+  renderBooks();
+}
+
 function onEdit(link) {
-  selectedRow = link.closest("tr");
-  const cells = selectedRow.cells;
+  const row = link.closest("tr");
+  const rowIndex = Array.from(row.parentElement.rows).indexOf(row);
+  selectedBook = livres[rowIndex];
+  const cells = row.cells;
   document.getElementById("namee").value = cells[0].textContent;
   document.getElementById("cat").value = cells[1].textContent;
   document.getElementById("assz").value = cells[2].textContent;
@@ -66,31 +92,22 @@ function onEdit(link) {
   document.querySelector('input[type="submit"]').value = "Update";
 }
 
-function updateRow(data) {
-  const cells = selectedRow.cells;
-  cells[0].textContent = data.title;
-  cells[1].textContent = data.genre;
-  cells[2].textContent = data.author;
-  cells[3].textContent = data.year;
-  cells[4].textContent = data.status;
-  cells[5].textContent = data.description;
-}
-
 function onDelete(link) {
   const row = link.closest("tr");
 
   if (confirm("Delete this book?")) {
-    if (row === selectedRow) resetForm();
     const rowIndex = Array.from(row.parentElement.rows).indexOf(row);
+    const deletedBook = livres[rowIndex];
+    if (deletedBook === selectedBook) resetForm();
     livres.splice(rowIndex, 1);
-    row.remove();
     save();
+    renderBooks();
   }
 }
 
 function resetForm() {
   document.querySelector("form").reset();
-  selectedRow = null;
+  selectedBook = null;
   document.querySelector('input[type="submit"]').value = "Submit";
 }
 
@@ -109,3 +126,5 @@ function searchBooks() {
     row.style.display = text.includes(query) ? "" : "none";
   });
 }
+
+document.getElementById("sort").addEventListener("change", sortBooks);

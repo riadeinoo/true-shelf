@@ -59,6 +59,15 @@
             
             <td>
                 <input type="text" class="search" id="search" placeholder="Search books..." oninput="searchBooks()">
+                <label for="sort">Sort by:</label>
+                <select class="sort" id="sort">
+                    <option value="title-asc">Title (A to Z)</option>
+                    <option value="title-desc">Title (Z to A)</option>
+                    <option value="author-asc">Author (A to Z)</option>
+                    <option value="author-desc">Author (Z to A)</option>
+                    <option value="year-asc">Year (oldest first)</option>
+                    <option value="year-desc">Year (newest first)</option>
+                </select>
             
                 <table class="list" id="greatlist">
                     <thead>

@@ -26,10 +26,12 @@ body > table {
     margin: 0;
     border-collapse: collapse;
     table-layout: fixed;
+   
 }
 
 table {
     border-collapse: collapse;
+     border-radius: 20px;
 }
 
 table.list {
@@ -54,11 +56,13 @@ td, th {
 table.list th {
     background-color: #355E4B;
     color: #FFFFFF;
+    
 }
 
 
 table.list tbody tr:nth-child(even) {
     background-color: #F3F7F2;
+    
 }
 
 table.list tbody tr:nth-child(odd) {
@@ -76,7 +80,6 @@ table.list tbody tr:nth-child(odd) {
     border: 1px solid #C8D5C9;
     border-radius: 6px;
     box-sizing: border-box;
-
 }
 
 #lagos input[type="text"]:focus,
@@ -99,8 +102,6 @@ input[type="submit"] {
 }
 
 form {
-    border: 1px solid #C8D5C9;
-    border-radius: 6px;
     box-sizing: border-box;
     margin: 3;
 }
@@ -166,7 +167,7 @@ label.validation-error {
 
 
 .search {
-    width: 100%;
+    width: 80%;
     padding: 12px 14px;
     margin: 8px 0 16px;
     display: inline-block;
@@ -175,4 +176,22 @@ label.validation-error {
     border: 1px solid #C8D5C9;
     border-radius: 6px;
     box-sizing: border-box;
+    outline: 2px solid #71947B;
+    border-color: #355E4B;
+
+}
+
+.sort {
+    padding: 12px 14px;
+    margin: 8px 0 16px 8px;
+    background-color: #FFFFFF;
+    color: #26352D;
+    border: 1px solid #C8D5C9;
+    border-radius: 6px;
+    font: 100% Arial, sans-serif;
+}
+
+
+#greatlist {
+     border-radius: 20px;
 }
