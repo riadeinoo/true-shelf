@@ -95,3 +95,17 @@ function resetForm() {
 }
 
 
+function searchBooks() {
+  const query = document.getElementById("search").value.toLowerCase();
+  const rows = document.querySelectorAll("#greatlist tbody tr");
+
+  rows.forEach(function (row) {
+    const text = Array.from(row.cells)
+      .slice(0, 6)
+      .map(function (cell) { return cell.textContent; })
+      .join(" ")
+      .toLowerCase();
+
+    row.style.display = text.includes(query) ? "" : "none";
+  });
+}

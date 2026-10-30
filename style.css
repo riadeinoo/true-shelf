@@ -158,3 +158,21 @@ label.validation-error {
     box-sizing: border-box;
     font:100% Arial, sans-serif;
 }
+
+#attz:focus {
+    outline: 2px solid #71947B;
+    border-color: #355E4B;
+}
+
+
+.search {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 8px 0 16px;
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #26352D;
+    border: 1px solid #C8D5C9;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
