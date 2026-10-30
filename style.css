@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #E8F0E8;
+    font-family: Arial, sans-serif;
+    color: #26352D;
+}
+
+#lagos {
+    margin: 5px;
+    padding: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#lagos label {
+    display: block;
+    color: #26352D;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+body > table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table.list {
+    width: 100%;
+    margin-top: 0;
+    vertical-align: top;
+    background-color: #FFFFFF;
+}
+
+body > table > tbody > tr > td {
+    vertical-align: top;
+    border: none;
+    padding: 16px;
+}
+
+td, th {
+    border: 1px solid #D5DFD5;
+    text-align: left;
+    padding: 12px;
+}
+
+table.list th {
+    background-color: #355E4B;
+    color: #FFFFFF;
+}
+
+
+table.list tbody tr:nth-child(even) {
+    background-color: #F3F7F2;
+}
+
+table.list tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+#lagos input[type="text"],
+#lagos input[type="number"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 8px 0 16px;
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #26352D;
+    border: 1px solid #C8D5C9;
+    border-radius: 6px;
+    box-sizing: border-box;
+
+}
+
+#lagos input[type="text"]:focus,
+#lagos input[type="number"]:focus {
+    outline: 2px solid #71947B;
+    border-color: #355E4B;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #355E4B;
+    color: #FFFFFF;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+form {
+    border: 1px solid #C8D5C9;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin: 3;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #284936;
+}
+
+form div.form-action-buttons {
+    text-align: right;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #355E4B;
+    margin-right: 4px;
+}
+
+a:hover {
+    color: #1E3929;
+}
+
+label.validation-error {
+    color: #C0392B;
+    margin-left: 5px;
+}
+
+.hide {
+    display: none;
+}
+
+#ammz {
+    height: 120px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #C8D5C9;
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+
+
+#attz {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 8px 0 16px;
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #26352D;
+    border: 1px solid #C8D5C9;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font:100% Arial, sans-serif;
+}

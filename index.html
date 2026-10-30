@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREATERLIB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <div id="lagos">
+                    <form onsubmit="event.preventDefault(); onFormSubmit();" autocomplete="off">
+                        <div>
+                            <label for="namee">Title</label>
+                            <input type="text" name="title" id="namee" required>
+                        </div>
+
+                        <div>
+                            <label for="cat">Genre</label>
+                            <input type="text" name="genre" id="cat" required>
+                        </div>
+
+                        <div>
+                            <label for="assz">Author</label>
+                            <input type="text" name="author" id="assz" required>
+                        </div>
+
+                        <div>
+                            <label for="addz">Year</label>
+                            <input type="text" name="year" id="addz" required>
+                        </div>
+
+                         <div>
+                            <label for="attz">status</label>
+                            <select name="status" id="attz" required>
+                                <option value="">Select a status</option>
+                                <option value="to-read">to-read</option>
+                                <option value="currently reading">currently reading</option>
+                                <option value="completed">completed</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="ammz">Description</label>
+                            <textarea name="description" id="ammz"></textarea>
+                        </div>
+
+                        <div>
+                            <input type="submit" value="Submit">
+                        </div>
+                       
+                    </form>
+                </div>
+            </td>
+
+            <td>
+                <table class="list" id="greatlist">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Author</th>
+                            <th>Year</th>
+                            <th>Status</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
